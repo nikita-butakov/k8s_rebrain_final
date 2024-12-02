@@ -1,0 +1,17 @@
+# librespeed-env.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: librespeed-env
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+data:
+  TELEMETRY: "true"
+  OBFUSCATION: "true"
+  DISABLE_EDIT_IP: "true"
+  DATABASE_HOST: "mysql"
+  DATABASE_PORT: "3306"
+  DATABASE_NAME: "database"
+  DATABASE_USER: "admin"
+  DATABASE_PASSWORD: adminpass

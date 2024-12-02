@@ -1,0 +1,23 @@
+# librespeed-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: librespeed-ingress
+  namespace: final
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/x-forwarded-for: "true"
+    nginx.ingress.kubernetes.io/x-real-ip: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+spec:
+  rules:
+  - host: librespeed.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: librespeed
+            port:
+              number: 80

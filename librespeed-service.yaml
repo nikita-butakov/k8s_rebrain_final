@@ -1,0 +1,14 @@
+# librespeed-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: librespeed
+  namespace: final
+  labels:
+    app.kubernetes.io/instance: librespeed
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app.kubernetes.io/instance: librespeed
